@@ -1,0 +1,9 @@
+{
+	"name": "adf-data-pipeline-uday",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cc5f2f37-9779-4883-880a-d75e9bb0d94a",
+		"tenantId": "815da6ce-d25f-4f07-8295-26dd8d0b8111"
+	}
+}

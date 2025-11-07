@@ -126,12 +126,10 @@
 						"parameters": {
 							"container": "bronze",
 							"folder": "cdc",
-							"file": {
-								"value": "@concat(pipeline().parameters.table, '_', variables('current'))",
-								"type": "Expression"
-							}
+							"file": "cdc.json"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],

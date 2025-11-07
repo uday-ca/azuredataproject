@@ -3,12 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "If Condition1",
-				"type": "IfCondition",
-				"dependsOn": [],
-				"userProperties": []
-			},
-			{
 				"name": "ForEach1",
 				"type": "ForEach",
 				"dependsOn": [],
@@ -44,7 +38,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "Select * from @{pipeline().parameters.schema}.@{pipeline().parameters.table} where @{pipeline().parameters.cdc_col} > '@{if(empty(pipeline().parameters.from_date), activity('last_cdc').output.value[0].cdc, pipeline().parameters.from_date)}'",
+										"value": "Select * from @{item().schema}.@{item().table} where @{item().cdc_col} > '@{if(empty(item().from_date), activity('last_cdc').output.value[0].cdc, item().from_date)}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -82,11 +76,11 @@
 									"parameters": {
 										"container": "bronze",
 										"folder": {
-											"value": "cdc_@{pipeline().parameters.table}",
+											"value": "cdc_@{item().table}",
 											"type": "Expression"
 										},
 										"file": {
-											"value": "@concat(pipeline().parameters.table,'_',variables('current'))",
+											"value": "@concat(item().table,'_',variables('current'))",
 											"type": "Expression"
 										}
 									}
@@ -140,7 +134,7 @@
 									"parameters": {
 										"container": "bronze",
 										"folder": {
-											"value": "cdc_@{pipeline().parameters.table}",
+											"value": "cdc_@{item().table}",
 											"type": "Expression"
 										},
 										"file": "cdc.json"
@@ -226,7 +220,7 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "select max(@{pipeline().parameters.cdc_col}) as cdc from @{pipeline().parameters.schema}.@{pipeline().parameters.table}",
+														"value": "select max(@{item().cdc_col}) as cdc from @{item().schema}.@{item().table}",
 														"type": "Expression"
 													}
 												}
@@ -303,7 +297,7 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "cdc_@{pipeline().parameters.table}",
+														"value": "cdc_@{item().table}",
 														"type": "Expression"
 													},
 													"file": "cdc.json"
@@ -319,17 +313,40 @@
 			}
 		],
 		"parameters": {
-			"schema": {
-				"type": "string"
-			},
-			"table": {
-				"type": "string"
-			},
-			"cdc_col": {
-				"type": "string"
-			},
-			"from_date": {
-				"type": "string"
+			"lppo_input": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"schema": "dbo",
+						"table": "DimUser",
+						"cdc_col": "updated_at",
+						"from_date": ""
+					},
+					{
+						"schema": "dbo",
+						"table": "DimTrack",
+						"cdc_col": "updated_at",
+						"from_date": ""
+					},
+					{
+						"schema": "dbo",
+						"table": "DimDate",
+						"cdc_col": "date",
+						"from_date": ""
+					},
+					{
+						"schema": "dbo",
+						"table": "DimArtist",
+						"cdc_col": "updated_at",
+						"from_date": ""
+					},
+					{
+						"schema": "dbo",
+						"table": "FactStream",
+						"cdc_col": "stream_timestamp",
+						"from_date": ""
+					}
+				]
 			}
 		},
 		"variables": {

@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "Incremental_Pipeline_ForAllTables",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],

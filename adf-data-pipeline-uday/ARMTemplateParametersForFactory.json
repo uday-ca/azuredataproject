@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-data-pipeline-uday"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1Uk_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://azureadlsdata01.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1Uk_properties_typeProperties_server": {
+			"value": "ukazsqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase1Uk_properties_typeProperties_database": {
+			"value": "ukazsqldb"
+		},
+		"AzureSqlDatabase1Uk_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		}
+	}
+}

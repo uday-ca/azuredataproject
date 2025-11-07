@@ -345,7 +345,7 @@
 					"method": "POST",
 					"url": "https://prod-91.eastus.logic.azure.com:443/workflows/4e45ec19623847ae8ea05f9c4515c8f3/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=EuLM9Q6GYsrvaPfmntXE6t8og20mUUszpAYmTLNDlfQ",
 					"body": {
-						"value": "@pipeline().RunId",
+						"value": "{\n    \"pipelineId\": \"@{pipeline().RunId}\",\n    \"pipelineName\": \"@{pipeline().Pipeline}\"\n}",
 						"type": "Expression"
 					}
 				}

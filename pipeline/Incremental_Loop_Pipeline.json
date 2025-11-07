@@ -184,7 +184,7 @@
 												"parameters": {
 													"container": "bronze",
 													"folder": {
-														"value": "@item().table",
+														"value": "@{item().table}",
 														"type": "Expression"
 													},
 													"file": {
@@ -294,7 +294,7 @@
 														"type": "Expression"
 													},
 													"file": {
-														"value": "empty.json",
+														"value": "cdc.json",
 														"type": "Expression"
 													}
 												}

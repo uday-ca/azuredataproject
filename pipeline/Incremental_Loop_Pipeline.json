@@ -294,7 +294,7 @@
 														"type": "Expression"
 													},
 													"file": {
-														"value": "cdc.json",
+														"value": "empty.json",
 														"type": "Expression"
 													}
 												}

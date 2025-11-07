@@ -8,6 +8,10 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('last_cdc').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "AzureSqltoLake",

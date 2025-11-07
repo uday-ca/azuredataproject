@@ -328,7 +328,8 @@
 					{
 						"activity": "Incremental_Pipeline_ForAllTables",
 						"dependencyConditions": [
-							"Succeeded"
+							"Succeeded",
+							"Failed"
 						]
 					}
 				],

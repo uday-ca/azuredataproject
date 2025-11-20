@@ -1,0 +1,9 @@
+{
+	"name": "adf-test-rguk123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "aa42f07a-4503-430d-8ff1-d73b25362a3f",
+		"tenantId": "815da6ce-d25f-4f07-8295-26dd8d0b8111"
+	}
+}
